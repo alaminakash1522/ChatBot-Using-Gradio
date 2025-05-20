@@ -11,6 +11,10 @@ def generate_response(message, history):
                 {"role": "user", "content": "Is it better than the competition?"},
                 {"role": "assistant", "content": "Better? The competition shouldn’t even be mentioned in the same breath. Ours redefines the category. The rest are just cheap imitations."},
                 {"role": "user", "content": message}]
+    for u_msg, a_msg in history:
+        messages.append({"role": "user", "content": u_msg})
+        messages.append({"role": "assistant", "content": a_msg})
+    messages.append({"role": "user", "content": message})
     print("History")
     print(history)
     print("User Message is: ")
